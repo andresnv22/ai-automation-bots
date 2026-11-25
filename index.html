@@ -3,194 +3,392 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Andrés AI — Bots de IA para negocios</title>
-  <meta name="description" content="Bots de IA para clínicas, reposterías, barberías y negocios locales: responden, agendan citas y capturan leads. Demos reales y código público.">
+  <meta name="color-scheme" content="light dark">
+  <script>
+    try {
+      const savedScheme = localStorage.getItem("color-scheme");
+      document.querySelector('meta[name="color-scheme"]').content =
+        savedScheme === "light" || savedScheme === "dark" ? savedScheme : "light dark";
+    } catch {}
+  </script>
+  <title>Andrés AI — Bots de IA y Automatización para Negocios y Agencias</title>
+  <meta name="description" content="Bots en Python con IA para citas por WhatsApp, Google Calendar, captación de leads, reseñas de Google Maps, facturas PDF y reportes. Código abierto con tests reales.">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="nav">
-    <a class="brand" href="#top">
-      <img src="avatar.png" alt="Andrés AI">
-      <span>Andrés AI</span>
-    </a>
-    <nav>
-      <a href="#bots">Bots</a>
-      <a href="#precios">Precios</a>
-      <a href="#proceso">Proceso</a>
-      <a class="btn small" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Probar el bot</a>
-    </nav>
+    <div class="nav-inner">
+      <a class="brand" href="#top">
+        <img src="avatar.png" alt="" width="36" height="36" decoding="async">
+        <span>Andrés AI</span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <a href="#bots">Bots (12)</a>
+        <a href="#precios">Precios</a>
+        <a href="#proceso">Proceso</a>
+        <button type="button" class="theme-toggle" id="themeToggle">
+          <span class="show-when-dark">Modo claro</span>
+          <span class="show-when-light">Modo oscuro</span>
+        </button>
+        <a class="btn small" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Probar bot</a>
+      </nav>
+    </div>
   </header>
 
   <main id="top">
     <section class="hero">
-      <p class="eyebrow">Automatización con IA para negocios</p>
-      <h1>Bots que contestan, agendan y venden por ti.</h1>
-      <p class="sub">Para clínicas, reposterías, barberías, tiendas y servicios locales. Implementación en días, no en meses.</p>
-      <div class="actions">
-        <a class="btn" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Probar el bot en Telegram</a>
-        <a class="btn ghost" href="#bots">Ver los bots</a>
+      <div class="hero-content">
+        <p class="eyebrow">Automatización con IA · Python · FastAPI</p>
+        <h1>Bots en producción que contestan, agendan y venden por ti.</h1>
+        <p class="sub">Para clínicas, inmobiliarias, e-commerce, negocios locales y agencias en marca blanca. Reglas de negocio en código, pruebas automatizadas y entrega en días.</p>
+        <div class="actions">
+          <a class="btn" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Probar asistente en Telegram</a>
+          <a class="btn ghost" href="#bots">Explorar los 12 bots</a>
+          <a class="btn ghost" href="https://github.com/andresnv22" target="_blank" rel="noopener">GitHub</a>
+        </div>
+        <dl class="metrics" aria-label="Indicadores técnicos">
+          <div class="metric">
+            <dt>Repositorios</dt>
+            <dd>12 open source</dd>
+          </div>
+          <div class="metric">
+            <dt>Calidad</dt>
+            <dd>200+ tests pytest</dd>
+          </div>
+          <div class="metric">
+            <dt>Despliegue</dt>
+            <dd>Oracle Cloud + CI</dd>
+          </div>
+          <div class="metric">
+            <dt>Modalidad</dt>
+            <dd>Directo o marca blanca</dd>
+          </div>
+        </dl>
       </div>
-      <p class="note">Demos públicas · Código abierto · Sin compromiso</p>
     </section>
 
     <section id="bots" class="section">
       <div class="section-head">
-        <p class="eyebrow">Portafolio</p>
-        <h2>Bots listos para adaptar</h2>
-        <p class="lead">Estos son <strong>demos reales</strong>, no trabajos de clientes. Tu bot se adapta a tu menú, horarios, precios y canales.</p>
+        <p class="eyebrow">Portafolio técnico</p>
+        <h2>12 bots listos para adaptar</h2>
+        <p class="lead">Código abierto con tests reales y manejo de errores, concurrencia y seguridad. Adaptables a tu negocio o a los clientes de tu agencia.</p>
       </div>
 
-      <div class="grid">
-        <article class="card">
-          <span class="tag">Citas</span>
-          <h3>Clínica / agenda</h3>
-          <p>Agenda, consulta y cancela citas sin doble reserva. Reglas de negocio en código y 55 tests.</p>
-          <p class="price">desde <strong>USD 300</strong> + USD 29/mes</p>
-          <div class="card-actions">
-            <a href="https://github.com/andresnv22/clinica-bot" target="_blank" rel="noopener">Ver demo</a>
-            <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Quiero este</a>
-          </div>
+      <div class="filter-bar" role="group" aria-label="Filtrar bots por categoría">
+        <button type="button" class="filter-chip" data-filter="all" aria-pressed="true">Todos (12)</button>
+        <button type="button" class="filter-chip" data-filter="citas" aria-pressed="false">WhatsApp &amp; Citas</button>
+        <button type="button" class="filter-chip" data-filter="ventas" aria-pressed="false">Leads &amp; Ventas</button>
+        <button type="button" class="filter-chip" data-filter="datos" aria-pressed="false">Datos &amp; Reportes</button>
+        <button type="button" class="filter-chip" data-filter="auto" aria-pressed="false">Automatización</button>
+      </div>
+
+      <div class="grid" id="botsGrid">
+        <article class="card" data-category="citas">
+          <header class="card-head">
+            <span class="tag">WhatsApp · Calendar</span>
+            <span class="tests-pill">6 tests</span>
+          </header>
+          <h3>WhatsApp IA + Google Calendar</h3>
+          <p>Webhook oficial de Meta con firma HMAC-SHA256, deduplicación en SQLite, tool-calling con IA y reserva real en Google Calendar sin doble cita.</p>
+          <footer>
+            <p class="price">desde <strong>USD 550</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/whatsapp-ia-calendar-bot" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
         </article>
 
-        <article class="card">
-          <span class="tag">WhatsApp</span>
-          <h3>Citas por WhatsApp</h3>
-          <p>Agente con la API oficial de Meta: webhooks firmados, deduplicación y sin doble reserva. 29 tests.</p>
-          <p class="price">desde <strong>USD 600</strong> + USD 49/mes</p>
-          <div class="card-actions">
-            <a href="https://github.com/andresnv22/whatsapp-ai-agent" target="_blank" rel="noopener">Ver demo</a>
-            <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Quiero este</a>
-          </div>
+        <article class="card" data-category="ventas">
+          <header class="card-head">
+            <span class="tag">Leads · CRM</span>
+            <span class="tests-pill">3 tests</span>
+          </header>
+          <h3>Respuesta inmediata a Leads</h3>
+          <p>Recibe formularios web o Meta Ads, califica intención con IA, responde por SMTP TLS al instante, evita duplicados en SQLite y exporta seguro a Excel.</p>
+          <footer>
+            <p class="price">desde <strong>USD 250</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/lead-instant-response-bot" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
         </article>
 
-        <article class="card">
-          <span class="tag">Pedidos</span>
-          <h3>Repostería / pedidos</h3>
-          <p>Toma pedidos completos, valida cupo y horarios, registra en CSV/Google Sheets y transfiere a humano. 80 tests.</p>
-          <p class="price">desde <strong>USD 300</strong> + USD 29/mes</p>
-          <div class="card-actions">
-            <a href="https://github.com/andresnv22/reposteria-bot" target="_blank" rel="noopener">Ver demo</a>
-            <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Quiero este</a>
-          </div>
+        <article class="card" data-category="auto">
+          <header class="card-head">
+            <span class="tag">Google Maps · IA</span>
+            <span class="tests-pill">3 tests</span>
+          </header>
+          <h3>Reseñas de Google Maps IA</h3>
+          <p>Consulta reseñas sin respuesta en Google Business Profile API (OAuth2), redacta respuesta personalizada multiidioma con IA y publica evitando duplicados.</p>
+          <footer>
+            <p class="price">desde <strong>USD 250</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/google-reviews-ai-bot" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
         </article>
 
-        <article class="card">
-          <span class="tag">Web</span>
-          <h3>FAQ + captura de leads</h3>
-          <p>Widget flotante para WordPress, Shopify o cualquier web. Responde FAQs desde tu información y guarda leads.</p>
-          <p class="price">desde <strong>USD 150</strong> + USD 19/mes</p>
-          <div class="card-actions">
-            <a href="https://github.com/andresnv22/faq-web-bot" target="_blank" rel="noopener">Ver demo</a>
-            <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Quiero este</a>
-          </div>
+        <article class="card" data-category="datos">
+          <header class="card-head">
+            <span class="tag">KPIs · Reportes</span>
+            <span class="tests-pill">4 tests</span>
+          </header>
+          <h3>Reportes Semanales Automáticos</h3>
+          <p>Lee CSV o Excel, valida columnas, limpia montos con formato de moneda, calcula conversión y canal más rentable, y envía resumen por correo SMTP TLS.</p>
+          <footer>
+            <p class="price">desde <strong>USD 180</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/weekly-reports-bot" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
         </article>
 
-        <article class="card">
-          <span class="tag">Datos</span>
-          <h3>Correos / PDF a Excel</h3>
-          <p>Lee correos, extrae facturas PDF, detecta NIT y monto, evita duplicados y genera Excel/CSV para contabilidad.</p>
-          <p class="price">desde <strong>USD 150</strong> + USD 19/mes</p>
-          <div class="card-actions">
-            <a href="https://github.com/andresnv22/correos-excel-bot" target="_blank" rel="noopener">Ver demo</a>
-            <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Quiero este</a>
-          </div>
+        <article class="card" data-category="citas">
+          <header class="card-head">
+            <span class="tag">Citas · Clínica</span>
+            <span class="tests-pill">55 tests</span>
+          </header>
+          <h3>Clínica / Agenda con Tool Use</h3>
+          <p>Agenda, consulta y cancela citas sin doble reserva bajo concurrencia (20 peticiones simultáneas). Identidad inyectada en servidor contra prompt injection.</p>
+          <footer>
+            <p class="price">desde <strong>USD 300</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/clinica-bot" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
         </article>
 
-        <article class="card">
-          <span class="tag">Automatización</span>
-          <h3>n8n + WhatsApp</h3>
-          <p>Workflows listos para importar: router de reservas, recordatorios 24 h y escalación a Telegram.</p>
-          <p class="price">desde <strong>USD 200</strong> + USD 29/mes</p>
-          <div class="card-actions">
-            <a href="https://github.com/andresnv22/n8n-whatsapp-workflows" target="_blank" rel="noopener">Ver demo</a>
-            <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Quiero este</a>
-          </div>
+        <article class="card" data-category="citas">
+          <header class="card-head">
+            <span class="tag">WhatsApp Cloud</span>
+            <span class="tests-pill">29 tests</span>
+          </header>
+          <h3>Agente de Citas WhatsApp Meta</h3>
+          <p>Implementa webhook + Graph API oficial de Meta (Claude/Gemini), firmas HMAC-SHA256, ACK inmediato y base de datos SQLite sin doble reserva.</p>
+          <footer>
+            <p class="price">desde <strong>USD 600</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/whatsapp-ai-agent" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
         </article>
 
-        <article class="card">
-          <span class="tag">Datos</span>
-          <h3>Scraper / monitoreo</h3>
-          <p>Páginas públicas a Excel/CSV: paginación, robots.txt, reintentos y sin duplicados. 10 tests.</p>
-          <p class="price">desde <strong>USD 150</strong></p>
-          <div class="card-actions">
-            <a href="https://github.com/andresnv22/web-scraper-demo" target="_blank" rel="noopener">Ver demo</a>
-            <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Quiero este</a>
-          </div>
+        <article class="card" data-category="ventas">
+          <header class="card-head">
+            <span class="tag">Pedidos · Comercio</span>
+            <span class="tests-pill">80 tests</span>
+          </header>
+          <h3>Repostería / Toma de Pedidos</h3>
+          <p>Toma pedidos completos (producto, tamaño, sabor, fecha y dedicatoria), valida cupos y anticipación, registra en CSV/Sheets y transfiere a humano.</p>
+          <footer>
+            <p class="price">desde <strong>USD 300</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/reposteria-bot" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
         </article>
 
-        <article class="card">
-          <span class="tag">Ventas</span>
-          <h3>Bot de captación</h3>
-          <p>Este mismo bot: responde, muestra paquetes, califica leads y te los manda a Telegram. Código abierto, 5 tests.</p>
-          <p class="price">desde <strong>USD 150</strong> + USD 19/mes</p>
-          <div class="card-actions">
-            <a href="https://github.com/andresnv22/ai-lead-bot" target="_blank" rel="noopener">Ver código</a>
-            <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Probar</a>
-          </div>
+        <article class="card" data-category="ventas">
+          <header class="card-head">
+            <span class="tag">Widget Web</span>
+            <span class="tests-pill">4 tests</span>
+          </header>
+          <h3>FAQ Web + Captura de Leads</h3>
+          <p>Widget embebible con una línea en WordPress, Shopify o cualquier sitio. Responde desde la base de conocimiento del negocio con respaldo local.</p>
+          <footer>
+            <p class="price">desde <strong>USD 150</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/faq-web-bot" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card" data-category="datos">
+          <header class="card-head">
+            <span class="tag">Contabilidad</span>
+            <span class="tests-pill">3 tests</span>
+          </header>
+          <h3>Correos / Facturas PDF a Excel</h3>
+          <p>Lee correos por IMAP en modo solo lectura, extrae facturas PDF (documento, NIT/ID fiscal, monto, moneda), deduplica y exporta Excel/CSV.</p>
+          <footer>
+            <p class="price">desde <strong>USD 150</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/correos-excel-bot" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card" data-category="auto">
+          <header class="card-head">
+            <span class="tag">n8n · Flujos</span>
+            <span class="tests-pill">4 tests</span>
+          </header>
+          <h3>Workflows n8n + WhatsApp</h3>
+          <p>Workflows importables para enrutar reservas hacia Google Sheets, enviar recordatorios 24 horas antes y escalar conversaciones a Telegram.</p>
+          <footer>
+            <p class="price">desde <strong>USD 200</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/n8n-whatsapp-workflows" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card" data-category="datos">
+          <header class="card-head">
+            <span class="tag">Scraping</span>
+            <span class="tests-pill">10 tests</span>
+          </header>
+          <h3>Web Scraper ético a Excel/CSV</h3>
+          <p>Extrae catálogos y listados respetando <code>robots.txt</code>, con paginación automática, esperas entre peticiones, reintentos y salida limpia sin duplicados.</p>
+          <footer>
+            <p class="price">desde <strong>USD 150</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/web-scraper-demo" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Solicitar</a>
+            </div>
+          </footer>
+        </article>
+
+        <article class="card" data-category="ventas">
+          <header class="card-head">
+            <span class="tag">Telegram · Live</span>
+            <span class="tests-pill">5 tests</span>
+          </header>
+          <h3>Bot de Captación en Telegram</h3>
+          <p>Bot activo en Oracle Cloud: responde consultas, presenta paquetes, califica y puntúa leads en SQLite CRM y notifica al administrador.</p>
+          <footer>
+            <p class="price">desde <strong>USD 150</strong></p>
+            <div class="card-links">
+              <a href="https://github.com/andresnv22/ai-lead-bot" target="_blank" rel="noopener">Ver código</a>
+              <a class="mini" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Probar</a>
+            </div>
+          </footer>
         </article>
       </div>
-      <p class="fineprint">Los tests cuentan las pruebas automatizadas del repo. Las demos son públicas; no son testimonios de clientes.</p>
     </section>
 
     <section id="precios" class="section alt">
       <div class="section-head">
-        <p class="eyebrow">Precios de lanzamiento</p>
-        <h2>Setup + mensualidad</h2>
-        <p class="lead">La mensualidad cubre hosting, monitoreo y cambios menores. El consumo de IA se paga aparte (normalmente pocos dólares al mes).</p>
+        <p class="eyebrow">Paquetes y tarifas</p>
+        <h2>Negocios directos y agencias marca blanca</h2>
+        <p class="lead">Entrega con código documentado, pruebas automatizadas y despliegue. El consumo de API de IA se conecta con tu propia cuenta (normalmente pocos dólares al mes).</p>
       </div>
       <div class="pricing">
         <article class="plan">
-          <h3>Piloto</h3>
-          <p class="big">USD 150–300</p>
-          <p>Un flujo pequeño en 3–7 días. Ideal para probar antes de invertir.</p>
+          <header>
+            <span class="tag">Piloto rápido</span>
+            <h3>Automatización puntual</h3>
+          </header>
+          <p class="big">USD 150 – 300</p>
+          <p>Extractor PDF a Excel, reportes semanales, scraper limpio o widget FAQ web listo en 3 a 7 días.</p>
         </article>
         <article class="plan featured">
-          <h3>Bot a medida</h3>
-          <p class="big">USD 300–800</p>
-          <p>Chatbot, agenda, captación o scraping adaptado a tu negocio. Incluye demo semanal y 2 semanas de soporte.</p>
+          <header>
+            <span class="tag">Más solicitado</span>
+            <h3>Bot con IA a medida</h3>
+          </header>
+          <p class="big">USD 300 – 800</p>
+          <p>Asistente de citas, leads o pedidos con base de datos SQLite, reglas en código, tests y 2 semanas de soporte.</p>
         </article>
         <article class="plan">
-          <h3>WhatsApp Cloud API</h3>
-          <p class="big">USD 600–1,200</p>
-          <p>API oficial de Meta, webhooks firmados, agenda y tests. Requiere cuenta de Meta.</p>
+          <header>
+            <span class="tag">Agencias / Enterprise</span>
+            <h3>WhatsApp Cloud + Calendar</h3>
+          </header>
+          <p class="big">USD 600 – 1,200</p>
+          <p>Integración oficial Meta Cloud API con firma HMAC, Google Calendar o CRM y opción de soporte marca blanca.</p>
         </article>
       </div>
-      <p class="center"><a class="btn" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Cotizar por Telegram</a></p>
+      <p class="center"><a class="btn" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Cotizar proyecto</a></p>
     </section>
 
     <section id="proceso" class="section">
       <div class="section-head">
-        <p class="eyebrow">Cómo trabajamos</p>
-        <h2>De la idea al bot en días</h2>
+        <p class="eyebrow">Metodología</p>
+        <h2>De tu necesidad al bot corriendo</h2>
       </div>
       <ol class="steps">
-        <li><span>01</span><div><h3>Brief de 15 min</h3><p>Qué debe hacer, por dónde atiende y qué datos usa.</p></div></li>
-        <li><span>02</span><div><h3>Propuesta y alcance</h3><p>Precio fijo, entregables y fecha. Sin sorpresas.</p></div></li>
-        <li><span>03</span><div><h3>Construcción con demos</h3><p>50% para arrancar. Demo semanal y ajustes.</p></div></li>
-        <li><span>04</span><div><h3>Entrega y soporte</h3><p>Código documentado, despliegue y 2 semanas de soporte.</p></div></li>
+        <li><span>01</span><div><h3>Brief de 15 min</h3><p>Definimos canales, reglas de negocio y qué debe quedar automatizado.</p></div></li>
+        <li><span>02</span><div><h3>Alcance y precio fijo</h3><p>Entregables claros, fecha de entrega y sin sorpresas ocultas.</p></div></li>
+        <li><span>03</span><div><h3>Desarrollo con pruebas</h3><p>Código modular en Python/FastAPI con suite de pruebas en pytest.</p></div></li>
+        <li><span>04</span><div><h3>Despliegue y soporte</h3><p>Puesta en producción en servidor o nube y 2 semanas de acompañamiento.</p></div></li>
       </ol>
     </section>
 
     <section class="section about">
-      <div class="about-card">
-        <img src="avatar.png" alt="Andrés AI">
+      <article class="about-card">
+        <img src="avatar.png" alt="Andrés Nuñez" width="110" height="110" decoding="async">
         <div>
-          <p class="eyebrow">Quién está detrás</p>
+          <p class="eyebrow">Desarrollador</p>
           <h2>Andrés Nuñez</h2>
-          <p>AI Automation Developer en Colombia (UTC-5). Construyo agentes de IA, chatbots, scrapers y automatizaciones con Python/FastAPI, WhatsApp Cloud API, Playwright y n8n.</p>
-          <p class="links">
+          <p>AI Automation &amp; Backend Developer (UTC-5, Colombia). Construyo agentes de IA, integraciones con WhatsApp Cloud API, Google Calendar/Business Profile, scraping ético y automatizaciones confiables en Python.</p>
+          <div class="links">
             <a href="https://github.com/andresnv22" target="_blank" rel="noopener">GitHub</a>
             <a href="https://www.linkedin.com/in/andres-nunez-1166a7423" target="_blank" rel="noopener">LinkedIn</a>
-            <a href="mailto:andresnvz3456@gmail.com?subject=Quiero%20un%20bot%20para%20mi%20negocio">Email</a>
-          </p>
+            <a href="mailto:andresnvz3456@gmail.com?subject=Proyecto%20de%20automatizaci%C3%B3n%20con%20IA">Email</a>
+          </div>
         </div>
-      </div>
+      </article>
     </section>
   </main>
 
   <footer>
-    <p>Andrés AI · Bots de IA para negocios · Colombia (UTC-5)</p>
-    <p><a href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Probar el bot</a></p>
+    <div class="footer-inner">
+      <p>Andrés AI · Automatización con IA y Backend Python · Colombia (UTC-5)</p>
+      <p><a href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Hablar por Telegram</a></p>
+    </div>
   </footer>
+
+  <script>
+    const metaScheme = document.querySelector('meta[name="color-scheme"]');
+    const themeToggle = document.getElementById("themeToggle");
+    const systemDarkQuery = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function renderedScheme() {
+      if (metaScheme.content === "light" || metaScheme.content === "dark") return metaScheme.content;
+      return systemDarkQuery.matches ? "dark" : "light";
+    }
+
+    function applyStoredScheme(value) {
+      metaScheme.content = value === "light" || value === "dark" ? value : "light dark";
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const target = renderedScheme() === "dark" ? "light" : "dark";
+      const system = systemDarkQuery.matches ? "dark" : "light";
+      try {
+        if (target === system) localStorage.removeItem("color-scheme");
+        else localStorage.setItem("color-scheme", target);
+      } catch {}
+      applyStoredScheme(target === system ? null : target);
+    });
+
+    window.addEventListener("storage", (ev) => {
+      if (ev.key === "color-scheme") applyStoredScheme(ev.newValue);
+    });
+
+    const filterButtons = Array.from(document.querySelectorAll(".filter-chip"));
+    const botCards = Array.from(document.querySelectorAll("#botsGrid .card"));
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const category = btn.dataset.filter;
+        filterButtons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+        botCards.forEach((card) => {
+          card.hidden = category !== "all" && card.dataset.category !== category;
+        });
+      });
+    });
+  </script>
 </body>
 </html>
