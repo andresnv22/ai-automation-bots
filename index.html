@@ -23,6 +23,7 @@
         <span>Andrés AI</span>
       </a>
       <nav aria-label="Navegación principal">
+        <a href="#demos">Demos (4)</a>
         <a href="#bots">Bots (12)</a>
         <a href="#precios">Precios</a>
         <a href="#proceso">Proceso</a>
@@ -42,7 +43,8 @@
         <h1>Bots en producción que contestan, agendan y venden por ti.</h1>
         <p class="sub">Para clínicas, inmobiliarias, e-commerce, negocios locales y agencias en marca blanca. Reglas de negocio en código, pruebas automatizadas y entrega en días.</p>
         <div class="actions">
-          <a class="btn" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Probar asistente en Telegram</a>
+          <a class="btn" href="#demos">Ver demos en video (20 s)</a>
+          <a class="btn ghost" href="https://t.me/andresnv_ai_bot?start=web" target="_blank" rel="noopener">Probar asistente en Telegram</a>
           <a class="btn ghost" href="#bots">Explorar los 12 bots</a>
           <a class="btn ghost" href="https://github.com/andresnv22" target="_blank" rel="noopener">GitHub</a>
         </div>
@@ -64,6 +66,63 @@
             <dd>Directo o marca blanca</dd>
           </div>
         </dl>
+      </div>
+    </section>
+
+    <section id="demos" class="section alt">
+      <div class="section-head">
+        <p class="eyebrow">Ejecuciones reales en video (20 s · audio narrado)</p>
+        <h2>Mira los bots funcionando en producción</h2>
+        <p class="lead">Cada video muestra salidas reales ejecutadas con <code>pytest</code> y flujos completos sin maquetas falsas.</p>
+      </div>
+      <div class="demos-grid">
+        <article class="demo-card" id="demo-whatsapp">
+          <div class="demo-meta">
+            <span class="tag">WhatsApp · Calendar</span>
+            <span class="tests-pill">35/35 pytest OK</span>
+          </div>
+          <h3>Citas 24/7 WhatsApp + Google Calendar</h3>
+          <p>Reserva automática en SQLite sin doble cita + evento en Google Calendar y verificación HMAC-SHA256.</p>
+          <video controls preload="metadata" playsinline>
+            <source src="demos/gig3_whatsapp_calendar.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="demo-card" id="demo-excel">
+          <div class="demo-meta">
+            <span class="tag">Email · PDF -> Excel</span>
+            <span class="tests-pill">5/5 pytest OK</span>
+          </div>
+          <h3>Extractor de Facturas Email/PDF a Excel</h3>
+          <p>Lee correos <code>.eml</code>/IMAP, extrae NIT y montos, deduplica en SQLite y sanitiza fórmulas Excel.</p>
+          <video controls preload="metadata" playsinline>
+            <source src="demos/gig1_pdf_to_excel.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="demo-card" id="demo-scraper">
+          <div class="demo-meta">
+            <span class="tag">Scraper · Telegram</span>
+            <span class="tests-pill">10/10 pytest OK</span>
+          </div>
+          <h3>Web Scraper Ético + Alertas Telegram</h3>
+          <p>Respeta <code>robots.txt</code>, extrae catálogos a Excel/CSV tipados y envía alertas al móvil.</p>
+          <video controls preload="metadata" playsinline>
+            <source src="demos/gig2_web_scraper_telegram.mp4" type="video/mp4">
+          </video>
+        </article>
+
+        <article class="demo-card" id="demo-widget">
+          <div class="demo-meta">
+            <span class="tag">Widget Web · SQLite</span>
+            <span class="tests-pill">4/4 pytest OK</span>
+          </div>
+          <h3>Chatbot FAQ Embebible + Captura de Leads</h3>
+          <p>Integración con una línea <code>&lt;script&gt;</code>, respaldo local sin LLM obligatorio y registro de leads.</p>
+          <video controls preload="metadata" playsinline>
+            <source src="demos/gig4_ai_faq_widget.mp4" type="video/mp4">
+          </video>
+        </article>
       </div>
     </section>
 
